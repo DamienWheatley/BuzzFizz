@@ -2,23 +2,41 @@
 
 
 let array = [];
-for (i = 1; i <= 10; i++){
+for (i = 100; i <= 200; i++) {
     array.push(i);
 }
 
 array.forEach(function(value, index) {
-    console.log(value);
     
-    let remainderMod3 = value % 3;
-    let remainderMod5 = value % 5;
+    let answer = '';
 
-    if (remainderMod3 == 0){
-        array.splice(index,1,'Fizz');
-    } else if (remainderMod5 == 0){
-        array.splice(index,1,'Buzz');
-    } else if (remainderBoth == 0){
-        array.splice(index,1,'BuzzFizz');
+    let Fizz = value % 3;
+    let Buzz = value % 5;
+    let Bang = value % 7;
+    let Bong = value % 11;
+    let Fezz = value % 13;
+    
+    if (Fizz == 0) {
+        answer += "Fizz";
+    }    
+    if (Fezz == 0) {
+        answer += 'Fezz';
     }
-})
+    if (Buzz == 0) {
+        answer += "Buzz";
+    }
+    if (Bang == 0) {
+        answer += 'Bang';
+    }
+    if (Bong == 0 && Fezz == 0) {
+        answer += 'Bong';
+    } else if (Bong == 0){
+        answer = 'Bong';
+    }
+    if (answer != '') {
+    array.splice(index, 1, answer);
+     }
+    }
+)
 
 console.log(array);
